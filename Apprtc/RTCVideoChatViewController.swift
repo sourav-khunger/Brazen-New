@@ -13,6 +13,14 @@ import MapKit
 
 class RTCVideoChatViewController: UIViewController,RTCEAGLVideoViewDelegate,ARDAppClientDelegate {
     
+    //custom properties outlets.
+    @IBOutlet weak var lblBatterPercentage: UILabel!
+    @IBOutlet weak var lblBatteryTemp: UILabel!
+    
+    @IBOutlet weak var lblNetworkSignal: UILabel!
+    
+    @IBOutlet weak var lblWifiSignal: UILabel!
+    
     
     //Views, Labels, and Buttons
     @IBOutlet weak var remoteView:RTCEAGLVideoView?
@@ -58,6 +66,51 @@ class RTCVideoChatViewController: UIViewController,RTCEAGLVideoViewDelegate,ARDA
         
         super.viewDidLoad()
         
+        //update ui components values.
+        
+        if appDelegate.strBatteryLevel != ""
+        {
+             lblBatterPercentage.text = appDelegate.strBatteryLevel
+            
+        }else
+        {
+             lblBatterPercentage.text = "0%"
+        }
+       
+        
+        if appDelegate.strBatteryTemp != ""
+        {
+            lblBatteryTemp.text = appDelegate.strBatteryTemp
+            
+        }else
+        {
+            lblBatteryTemp.text = "0ºC"
+        }
+        
+        
+        if appDelegate.strNetworkSignal != ""
+        {
+            lblNetworkSignal.text = "LTE Signal : \(appDelegate.strNetworkSignal)"
+            
+        }else
+        {
+            lblNetworkSignal.text = "LTE Signal : No Signal"
+        }
+        
+        
+        if appDelegate.strWifiSignal != ""
+        {
+            lblWifiSignal.text = "Wifi Signal : \(appDelegate.strWifiSignal)"
+            
+        }else
+        {
+            lblWifiSignal.text = "Wifi Signal : No Signal"
+        }
+        
+        
+        
+        
+        
         self.isZoom = false;
         self.audioButton?.layer.cornerRadius=20.0
         self.videoButton?.layer.cornerRadius=20.0
@@ -80,7 +133,17 @@ class RTCVideoChatViewController: UIViewController,RTCEAGLVideoViewDelegate,ARDA
         
         //add pin annotation.
         let annotaion = MKPointAnnotation()
-        annotaion.coordinate = CLLocationCoordinate2DMake(39.124032,-104.880821)
+        
+        if appDelegate.strLati != "" && appDelegate.strLongi != ""
+        {
+            annotaion.coordinate = CLLocationCoordinate2DMake(Double(appDelegate.strLati)!,Double(appDelegate.strLongi)!)
+            
+        }else
+        {
+            annotaion.coordinate = CLLocationCoordinate2DMake(39.124032,-104.880821)
+        }
+        
+        
         
         self.mapTopView.addAnnotation(annotaion)
         
@@ -211,8 +274,14 @@ class RTCVideoChatViewController: UIViewController,RTCEAGLVideoViewDelegate,ARDA
     
     @objc func zoomRemote() {
         //Toggle Aspect Fill or Fit
-        self.isZoom = !self.isZoom;
-        self.videoView(self.remoteView!, didChangeVideoSize: self.remoteVideoSize!)
+        
+        if self.remoteVideoSize != nil
+        {
+            self.isZoom = !self.isZoom;
+            self.videoView(self.remoteView!, didChangeVideoSize: self.remoteVideoSize!)
+        }
+        
+       
     }
     
     @objc func mute() {

@@ -10,6 +10,7 @@
 		2340B3D322CF54FC008759C9 /* SplashInitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340B3D222CF54FC008759C9 /* SplashInitialController.swift */; };
 		23411E7D22C8BFB10009A619 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23411E7C22C8BFB10009A619 /* SplashController.swift */; };
 		2347EF4522C8153E004AAA66 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2347EF4422C8153E004AAA66 /* QRScannerController.swift */; };
+		23C33993794DB9227CB09AD8 /* Pods_Apprtc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7E2925B7B73943FDCEB351 /* Pods_Apprtc.framework */; };
 		D863B1131C932B0000DE1C4C /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D863B1121C932B0000DE1C4C /* VideoToolbox.framework */; };
 		D875EE851B9C03AE008B1DF3 /* ARDAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D875EE551B9C03AE008B1DF3 /* ARDAppClient.m */; };
 		D875EE861B9C03AE008B1DF3 /* ARDMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D875EE571B9C03AE008B1DF3 /* ARDMessageResponse.m */; };
@@ -107,6 +108,9 @@
 		2340B3D222CF54FC008759C9 /* SplashInitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInitialController.swift; sourceTree = "<group>"; };
 		23411E7C22C8BFB10009A619 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		2347EF4422C8153E004AAA66 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
+		3A7E2925B7B73943FDCEB351 /* Pods_Apprtc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apprtc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BE3E9500A63DE77C2216AF1 /* Pods-Apprtc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apprtc.release.xcconfig"; path = "Target Support Files/Pods-Apprtc/Pods-Apprtc.release.xcconfig"; sourceTree = "<group>"; };
+		6D9DC0BC507623AA3EDAB975 /* Pods-Apprtc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apprtc.debug.xcconfig"; path = "Target Support Files/Pods-Apprtc/Pods-Apprtc.debug.xcconfig"; sourceTree = "<group>"; };
 		976E3D501BCE64DF002486D5 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		D863B1121C932B0000DE1C4C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		D875EE541B9C03AE008B1DF3 /* ARDAppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDAppClient.h; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				D875EE931B9C045E008B1DF3 /* libicucore.dylib in Frameworks */,
 				D8CE08B11E9F8B61002E1440 /* WebRTC.framework in Frameworks */,
 				D875EE911B9C0421008B1DF3 /* libsqlite3.0.dylib in Frameworks */,
+				23C33993794DB9227CB09AD8 /* Pods_Apprtc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +263,16 @@
 			children = (
 			);
 			path = QRScanner;
+			sourceTree = "<group>";
+		};
+		804FADB6854291AAACFD8ECC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D9DC0BC507623AA3EDAB975 /* Pods-Apprtc.debug.xcconfig */,
+				4BE3E9500A63DE77C2216AF1 /* Pods-Apprtc.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		D875EE531B9C03AE008B1DF3 /* Lib */ = {
@@ -339,6 +354,7 @@
 				D88F03CF1E9CFA3B006A74BA /* ARDAppClientTests */,
 				D878BE4E1B9B6110001AE9CD /* Products */,
 				F95ED0AB22E04D9E001CE8FF /* Frameworks */,
+				804FADB6854291AAACFD8ECC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -522,6 +538,7 @@
 			isa = PBXGroup;
 			children = (
 				F95ED0AC22E04D9E001CE8FF /* MapKit.framework */,
+				3A7E2925B7B73943FDCEB351 /* Pods_Apprtc.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -533,10 +550,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D878BE6C1B9B6110001AE9CD /* Build configuration list for PBXNativeTarget "Apprtc" */;
 			buildPhases = (
+				3EEE5A813C6B90D7E6171287 /* [CP] Check Pods Manifest.lock */,
 				D878BE491B9B6110001AE9CD /* Sources */,
 				D878BE4A1B9B6110001AE9CD /* Frameworks */,
 				D878BE4B1B9B6110001AE9CD /* Resources */,
 				D8B778A11DE4C32600DFC2E8 /* Embed Frameworks */,
+				48C882FCB47E41D2FA37E673 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -644,6 +663,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3EEE5A813C6B90D7E6171287 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Apprtc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48C882FCB47E41D2FA37E673 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Apprtc/Pods-Apprtc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Apprtc/Pods-Apprtc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D878BE491B9B6110001AE9CD /* Sources */ = {
@@ -817,6 +881,7 @@
 		};
 		D878BE6D1B9B6110001AE9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D9DC0BC507623AA3EDAB975 /* Pods-Apprtc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -847,6 +912,7 @@
 		};
 		D878BE6E1B9B6110001AE9CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BE3E9500A63DE77C2216AF1 /* Pods-Apprtc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

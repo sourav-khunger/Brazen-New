@@ -325,8 +325,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cew-c7-xZz">
                                 <rect key="frame" x="0.0" y="156.5" width="320" height="136"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Charge :  58%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pw-sD-OFG">
-                                        <rect key="frame" x="43" y="9.5" width="142" height="17"/>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Charge :  0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pw-sD-OFG">
+                                        <rect key="frame" x="43" y="9.5" width="133.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -340,8 +340,8 @@
                                             <constraint firstAttribute="width" secondItem="yaJ-wT-yxw" secondAttribute="height" multiplier="1:1" id="XMv-9P-wAA"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Temp   :  28ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlG-yP-F8e">
-                                        <rect key="frame" x="45.5" y="46" width="142" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery Temp   :  0ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlG-yP-F8e">
+                                        <rect key="frame" x="45.5" y="46" width="133.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -361,8 +361,8 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LTE_Range" translatesAutoresizingMaskIntoConstraints="NO" id="Vaa-cX-6ny">
                                         <rect key="frame" x="18" y="74" width="22.5" height="22"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi Signal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pl-Z0-v9g">
-                                        <rect key="frame" x="45.5" y="107" width="68.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wifi Signal :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pl-Z0-v9g">
+                                        <rect key="frame" x="45.5" y="107" width="76" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -448,6 +448,10 @@
                         <outlet property="footerView" destination="SXd-6C-KqO" id="Qvc-SN-pgh"/>
                         <outlet property="footerViewBottomConstraint" destination="Fp2-zi-hQr" id="6YG-wz-Ujj"/>
                         <outlet property="hangupButton" destination="EI7-LY-TpD" id="bx4-BR-CKa"/>
+                        <outlet property="lblBatterPercentage" destination="3pw-sD-OFG" id="qex-Dh-z3G"/>
+                        <outlet property="lblBatteryTemp" destination="jlG-yP-F8e" id="f9c-3c-Axu"/>
+                        <outlet property="lblNetworkSignal" destination="vMG-ZO-Lsc" id="tLd-kT-c2t"/>
+                        <outlet property="lblWifiSignal" destination="7pl-Z0-v9g" id="xMD-lr-00o"/>
                         <outlet property="localView" destination="BOI-FD-Eb5" id="rhC-Yy-Ulq"/>
                         <outlet property="localViewBottomConstraint" destination="yhf-NL-e7x" id="mcm-Lf-6wc"/>
                         <outlet property="localViewRightConstraint" destination="rhb-9F-fl6" id="5rX-M0-I5F"/>

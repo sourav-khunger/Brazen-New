@@ -5,14 +5,31 @@
 //  Created by Mahabali on 9/5/15.
 //  Copyright (c) 2015 Mahabali. All rights reserved.
 //
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 
 import UIKit
 import WebRTC
+
+import SocketIO
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
+    let manager = SocketManager(socketURL: URL(string: "https://intense-bayou-55879.herokuapp.com/")!, config: [.log(true)])  //, .compress
+  
+    
+    var strBatteryLevel : String = ""
+    var strBatteryTemp : String = ""
+    var strLati : String = ""
+    var strLongi : String = ""
+    var strNetworkSignal : String = ""
+    var strUserName : String = ""
+    var strWifiSignal : String = ""
+    
+    
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
@@ -35,6 +52,94 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    
+    //socket io code for web sockets dynamic data updates.
+    let socket = manager.defaultSocket
+
+
+    socket.on(clientEvent: .connect) {data, ack in
+        print("my socket connected")
+        
+        print("my socket data : \(data)")
+        
+       socket.emit("connect user", ["username": "shammi"])
+        
+    }
+
+
+
+    socket.on("connect user") {data, ack in
+        // guard let cur = data[0] as? Double else { return }
+
+        print("new event connect Data : \(data)")
+
+    }
+    
+    socket.on("jsondata") {data, ack in
+       // guard let cur = data[0] as? Double else { return }
+
+        print("InComing Data : \(data)")
+
+        if let response = data as? [NSDictionary]
+        {
+            if response.count > 0
+            {
+                let dic : NSDictionary = response[0]
+                
+                    if let batteryL = dic.object(forKey: "batteryLevel") as? String
+                    {
+                        self.strBatteryLevel = batteryL
+                    }
+                
+                if let batteryTemp = dic.object(forKey: "batteryTemp") as? String
+                {
+                    self.strBatteryTemp = batteryTemp
+                }
+               
+                if let lati = dic.object(forKey: "latitute") as? String
+                {
+                    self.strLati = lati
+                }
+                
+                if let longi = dic.object(forKey: "longitute") as? String
+                {
+                    self.strLongi = longi
+                }
+                
+                if let networkSignal = dic.object(forKey: "networkSignal") as? String
+                {
+                    self.strNetworkSignal = networkSignal
+                }
+                
+                if let userName = dic.object(forKey: "username") as? String
+                {
+                    self.strUserName = userName
+                }
+                
+                if let wifiSignal = dic.object(forKey: "wifiSignal") as? String
+                {
+                    self.strWifiSignal = wifiSignal
+                }
+                
+            }
+            
+        }
+        
+        
+//        socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
+//            socket.emit("update", ["amount": cur + 2.50])
+//        }
+//
+//        ack.with("Got your currentAmount", "dude")
+    }
+
+    socket.connect()
+
+    
+    
+    
+    
     return true
   }
   
